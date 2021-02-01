@@ -18,3 +18,14 @@ void gotoxy(int x, int y) {
 	pos.Y = y;
 	SetConsoleCursorPosition(consoleHandle, pos);
 }
+
+int keyControl() {
+	char temp = _getch();
+
+	switch (temp) {
+	case ' ':
+		return SPACE;
+	case '/n':
+		return ENTER;
+	}
+}

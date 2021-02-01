@@ -5,8 +5,12 @@
 #include<Windows.h>
 #include<conio.h>
 
+#define SPACE 0
+#define ENTER 1
+
 void init();
 void gotoxy(int, int);
+int keyControl();
 
 #endif
 
