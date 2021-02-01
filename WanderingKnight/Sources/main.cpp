@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	init();
-	drawTitle();
-	drawMenu();
+	Util::init();
+	Display::drawTitle();
+	Display::drawMenu();
 }

@@ -26,6 +26,7 @@
   <ItemGroup>
     <ClInclude Include="Includes\Display.hpp" />
     <ClInclude Include="Includes\Util.hpp" />
+    <ClInclude Include="Includes\WanderingKnight.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

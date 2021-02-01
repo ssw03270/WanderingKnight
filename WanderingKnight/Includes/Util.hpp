@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __UTIL_H__
 #define __UTIL_H__
 
@@ -8,9 +10,12 @@
 #define SPACE 0
 #define ENTER 1
 
-void init();
-void gotoxy(int, int);
-int keyControl();
+namespace Util
+{
+	void init();
+	void gotoxy(int, int);
+	int keyControl();
+}
 
 #endif
 

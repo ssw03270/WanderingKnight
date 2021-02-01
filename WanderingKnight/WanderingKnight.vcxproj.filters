@@ -32,5 +32,8 @@
     <ClInclude Include="Includes\Util.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\WanderingKnight.hpp">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

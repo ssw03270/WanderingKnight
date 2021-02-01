@@ -1,6 +1,6 @@
 #include "../Includes/Util.hpp"
 
-void init() {
+void Util::init() {
 	system("mode con cols=86 lines=40 | title WanderingKnight");
 
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -11,7 +11,7 @@ void init() {
 
 }
 
-void gotoxy(int x, int y) {
+void Util::gotoxy(int x, int y) {
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	COORD pos;
 	pos.X = x;
@@ -19,7 +19,7 @@ void gotoxy(int x, int y) {
 	SetConsoleCursorPosition(consoleHandle, pos);
 }
 
-int keyControl() {
+int Util::keyControl() {
 	char temp = _getch();
 
 	switch (temp) {
