@@ -18,22 +18,28 @@
     <ClCompile Include="Sources\main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Display.cpp">
+    <ClCompile Include="Sources\Util.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\Util.cpp">
+    <ClCompile Include="Sources\MainMenu.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\Game.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Includes\Display.hpp">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Includes\Util.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\WanderingKnight.hpp">
       <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\MainMenu.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\Game.hpp">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

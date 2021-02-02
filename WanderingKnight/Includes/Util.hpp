@@ -7,6 +7,9 @@
 #include<Windows.h>
 #include<conio.h>
 
+#define DISPLAY_WIDTH 86
+#define DISPLAY_HEIGHT 40
+
 #define SPACE 0
 #define ENTER 1
 

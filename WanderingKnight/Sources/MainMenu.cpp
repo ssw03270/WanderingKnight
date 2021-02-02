@@ -1,8 +1,11 @@
-#include "../Includes/Display.hpp"
+#include "../Includes/MainMenu.hpp"
 #include "../Includes/Util.hpp"
 
 // Draw title in consol
-void Display::drawTitle() {
+void MainMenu::drawTitle() {
+    // clear consol
+    system("cls");
+
     std::cout << "" << std::endl;
     std::cout << "" << std::endl;
     std::cout << "    ##   ##    ##     ##  ##   ####     ######   #####    ######   ##  ##    #####  " << std::endl;
@@ -24,17 +27,21 @@ void Display::drawTitle() {
 }
 
 // Draw menu in consol
-void Display::drawMenu() {
+int MainMenu::drawMenu() {
+    // set text pos
     int x = DISPLAY_WIDTH / 2 - 10, y = DISPLAY_HEIGHT / 2;
     int curPos = 0;
 
+    // draw title
+    MainMenu::drawTitle();
+
     // print menu
     Util::gotoxy(x, y);
-    std::cout << "  GAME START";
+    std::cout << "  게임 시작";
     Util::gotoxy(x, y + 1);
-    std::cout << "  GAME INFO";
+    std::cout << "  게임 정보";
     Util::gotoxy(x, y + 2);
-    std::cout << "  GAME QUIT";
+    std::cout << "  게임 종료";
 
     // If input ENTER key, move curser
     while (true) {
@@ -43,8 +50,10 @@ void Display::drawMenu() {
             (i == curPos) ? std::cout << ">" : std::cout << " ";
         }
         
-        // If input ENTER key, curPos increase
-        curPos = (Util::keyControl() == SPACE) ? curPos + 1 : curPos;
-        curPos = (curPos > 2) ? 0 : curPos;
+        auto input = Util::keyControl();
+        // If input SPACE key, curPos increase
+        input == SPACE ? (curPos = (curPos >= 2) ? 0 : curPos + 1) : false;
+        // If input ENTER key, something start
+        if (input == ENTER) return curPos;
     }
 }

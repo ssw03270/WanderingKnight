@@ -23,9 +23,9 @@ int Util::keyControl() {
 	char temp = _getch();
 
 	switch (temp) {
-	case ' ':
+	case ' ':	// press space key
 		return SPACE;
-	case '/n':
+	case '\r':	// press enter key
 		return ENTER;
 	}
 }
