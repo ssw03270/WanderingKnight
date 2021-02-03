@@ -1,9 +1,28 @@
-#include "Game.hpp"
-#include "Util.hpp"
-#include "MainMenu.hpp"
+#include <Game.hpp>
+#include <Util.hpp>
+#include <MainMenu.hpp>
+#include <GameScript.hpp>
 
 void Game::gameStart() {
-    Util::readJson();
+    // set text pos
+    int x = DISPLAY_WIDTH / 2 - 25, y = DISPLAY_HEIGHT / 2;
+
+    // draw title
+    MainMenu::drawTitle();
+
+    GameScript::Script script = Util::readJson();
+
+    // print game
+    Util::gotoxy(x, y);
+    std::cout << script.getRegion();
+    
+    while (true) {
+        auto input = Util::keyControl();
+        // if press space key
+        if (input == SPACE) {
+            return;
+        }
+    }
 }
 
 void Game::gameInfo() {

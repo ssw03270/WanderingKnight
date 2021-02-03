@@ -1,18 +1,20 @@
-#include "Util.hpp"
+#include <Util.hpp>
+
 #pragma execution_character_set( "utf-8" )
-void Util::readJson() {
+
+GameScript::Script Util::readJson() {
 	using json = nlohmann::json;
 	std::ifstream stream( "C:/Users/ttd85/Documents/GitHub/WanderingKnight/WanderingKnight/Resources/Adventure/GameScript.json" );
 	json data;
-	try {
-		data = json::parse(stream);
-		while(true)
-			std::cout << data["region"].get<std::string>();
-	}
-	catch (json::parse_error& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	data = json::parse(stream);
+
+	GameScript::Script script;
+	script.setScriptCode(data["scriptCode"].get<int>());
+	script.setRegion(data["region"].get<std::string>());
+	script.setText(data["text"].get<std::string>());
+
+	return script;
+
 }
 
 void Util::init() {

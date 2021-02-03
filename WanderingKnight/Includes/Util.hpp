@@ -8,7 +8,9 @@
 #include<cstring>
 #include <fstream>
 #include <iostream>
-#include "json/json.hpp"
+#include <json/json.hpp>
+
+#include <GameScript.hpp>
 
 #define DISPLAY_WIDTH 86
 #define DISPLAY_HEIGHT 40
@@ -21,7 +23,7 @@ namespace Util
 	void init();
 	void gotoxy(int, int);
 	int keyControl();
-	void readJson();
+	GameScript::Script readJson();
 }
 
 #endif

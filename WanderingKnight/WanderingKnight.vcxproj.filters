@@ -27,6 +27,9 @@
     <ClCompile Include="Sources\Game.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\GameScript.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\Util.hpp">
@@ -39,6 +42,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\WanderingKnight.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\GameScript.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
