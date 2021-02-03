@@ -1,12 +1,13 @@
 #include "Util.hpp"
-
+#pragma execution_character_set( "utf-8" )
 void Util::readJson() {
 	using json = nlohmann::json;
-	std::ifstream stream( "C:/Users/ttd85/Documents/GitHub/WanderingKnight/WanderingKnight/Resources/Adventure/GameStart.json" );
+	std::ifstream stream( "C:/Users/ttd85/Documents/GitHub/WanderingKnight/WanderingKnight/Resources/Adventure/GameScript.json" );
 	json data;
 	try {
 		data = json::parse(stream);
-		std::cout << data["region"].get<std::string>();
+		while(true)
+			std::cout << data["region"].get<std::string>();
 	}
 	catch (json::parse_error& e)
 	{
@@ -15,7 +16,9 @@ void Util::readJson() {
 }
 
 void Util::init() {
+
 	system("mode con cols=86 lines=40 | title WanderingKnight");
+	SetConsoleOutputCP(65001);
 
 	HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO ConsoleCursor;

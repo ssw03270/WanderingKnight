@@ -1,4 +1,4 @@
-#include "MainMenu.hpp"
+ï»¿#include "MainMenu.hpp"
 #include "Util.hpp"
 
 // Draw title in consol
@@ -37,11 +37,11 @@ int MainMenu::drawMenu() {
 
     // print menu
     Util::gotoxy(x, y);
-    std::cout << "  °ÔÀÓ ½ÃÀÛ";
+    std::cout << "  ê²Œìž„ ì‹œìž‘";
     Util::gotoxy(x, y + 1);
-    std::cout << "  °ÔÀÓ Á¤º¸";
+    std::cout << "  ê²Œìž„ ì •ë³´";
     Util::gotoxy(x, y + 2);
-    std::cout << "  °ÔÀÓ Á¾·á";
+    std::cout << "  ê²Œìž„ ì¢…ë£Œ";
 
     // If input ENTER key, move curser
     while (true) {

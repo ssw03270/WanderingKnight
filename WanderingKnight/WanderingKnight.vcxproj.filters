@@ -43,7 +43,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Adventure\GameStart.json">
+    <None Include="Resources\Adventure\GameScript.json">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

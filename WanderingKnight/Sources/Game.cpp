@@ -15,13 +15,13 @@ void Game::gameInfo() {
 
     // print game info
     Util::gotoxy(x, y);
-    std::cout << "¹öÀü : v0.1";
+    std::cout << "ë²„ì „ : v0.1";
     Util::gotoxy(x, y + 1);
-    std::cout << "Á¦ÀÛÀÚ : ³ª¹«µÕÁö";
+    std::cout << "ì œìž‘ìž : ë‚˜ë¬´ë‘¥ì§€";
     Util::gotoxy(x, y + 2);
-    std::cout << "¿ÀÇÂ¼Ò½º : https://github.com/ssw03270/WanderingKnight";
+    std::cout << "ì˜¤í”ˆì†ŒìŠ¤ : https://github.com/ssw03270/WanderingKnight";
     Util::gotoxy(x, y + 4);
-    std::cout << "¸Þ´º·Î µ¹¾Æ°¡¶ó¸é '½ºÆäÀÌ½º ¹Ù' ¸¦ ´©¸£¼¼¿ä";
+    std::cout << "ë©”ë‰´ë¡œ ëŒì•„ê°€ë¼ë©´ 'ìŠ¤íŽ˜ì´ìŠ¤ ë°”' ë¥¼ ëˆ„ë¥´ì„¸ìš”";
 
     while (true) {
         auto input = Util::keyControl();
