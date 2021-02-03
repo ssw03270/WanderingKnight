@@ -7,6 +7,7 @@
 namespace Game {
 	void gameStart();
 	void gameInfo();
+	void drawUI();
 }
 
 #endif // !__GAME_H__

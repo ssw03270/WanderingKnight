@@ -1,7 +1,7 @@
 #include<iostream>
-#include "MainMenu.hpp"
-#include "Util.hpp"
-#include "Game.hpp"
+#include <MainMenu.hpp>
+#include <Util.hpp>
+#include <Game.hpp>
 
 using namespace std;
 

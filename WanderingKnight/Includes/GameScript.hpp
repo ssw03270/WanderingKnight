@@ -2,6 +2,7 @@
 #define __GAME_SCRIPT_H__
 
 #include<string>
+#include<vector>
 
 namespace GameScript {
 	class Script {
@@ -17,6 +18,8 @@ namespace GameScript {
 		int getScriptCode();
 		std::string getRegion();
 		std::string getText();
+
+		std::vector<std::string> getWord(std::string);
 	};
 }
 
