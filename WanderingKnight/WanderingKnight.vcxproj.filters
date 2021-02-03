@@ -32,14 +32,19 @@
     <ClInclude Include="Includes\Util.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\WanderingKnight.hpp">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Includes\MainMenu.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\Game.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\WanderingKnight.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Adventure\GameStart.json">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -4,7 +4,6 @@
 #define __MAIN_MENU_H__
 
 #include<iostream>
-#include "WanderingKnight.hpp"
 
 namespace MainMenu
 {

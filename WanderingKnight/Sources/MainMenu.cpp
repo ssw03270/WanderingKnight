@@ -1,5 +1,5 @@
-#include "../Includes/MainMenu.hpp"
-#include "../Includes/Util.hpp"
+#include "MainMenu.hpp"
+#include "Util.hpp"
 
 // Draw title in consol
 void MainMenu::drawTitle() {

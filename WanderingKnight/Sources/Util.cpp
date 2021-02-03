@@ -1,4 +1,18 @@
-#include "../Includes/Util.hpp"
+#include "Util.hpp"
+
+void Util::readJson() {
+	using json = nlohmann::json;
+	std::ifstream stream( "C:/Users/ttd85/Documents/GitHub/WanderingKnight/WanderingKnight/Resources/Adventure/GameStart.json" );
+	json data;
+	try {
+		data = json::parse(stream);
+		std::cout << data["region"].get<std::string>();
+	}
+	catch (json::parse_error& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
 
 void Util::init() {
 	system("mode con cols=86 lines=40 | title WanderingKnight");
@@ -22,10 +36,14 @@ void Util::gotoxy(int x, int y) {
 int Util::keyControl() {
 	char temp = _getch();
 
+	int input = 0;
 	switch (temp) {
 	case ' ':	// press space key
-		return SPACE;
+		input = SPACE;
+		break;
 	case '\r':	// press enter key
-		return ENTER;
+		input = ENTER;
+		break;
 	}
+	return input;
 }

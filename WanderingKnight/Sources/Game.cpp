@@ -1,6 +1,10 @@
-#include "../Includes/Game.hpp"
-#include "../Includes/Util.hpp"
-#include "../Includes/MainMenu.hpp"
+#include "Game.hpp"
+#include "Util.hpp"
+#include "MainMenu.hpp"
+
+void Game::gameStart() {
+    Util::readJson();
+}
 
 void Game::gameInfo() {
     // set text pos

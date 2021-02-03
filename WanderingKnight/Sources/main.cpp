@@ -1,7 +1,7 @@
 #include<iostream>
-#include "../Includes/MainMenu.hpp"
-#include "../Includes/Util.hpp"
-#include "../Includes/Game.hpp"
+#include "MainMenu.hpp"
+#include "Util.hpp"
+#include "Game.hpp"
 
 using namespace std;
 
@@ -17,6 +17,7 @@ int main() {
 int menu() {
 	switch (MainMenu::drawMenu()) {
 	case 0:	// game start
+		Game::gameStart();
 		return 0;
 	case 1:	// game info
 		Game::gameInfo();
@@ -24,4 +25,5 @@ int menu() {
 	case 2:	// game quit
 		return 2;
 	}
+	return 0;
 }
