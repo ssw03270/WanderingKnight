@@ -20,52 +20,67 @@ void Game::drawUI() {
 }
 
 void Game::gameStart() {
-    // set text pos
-    int x = DISPLAY_WIDTH / 4, y = DISPLAY_HEIGHT / 2;
-
-    // draw title
-    MainMenu::drawTitle();
-    // draw ui
-    Game::drawUI();
-
+    // get script
     GameScript::Script* script = Util::readJson("GameScript.json");
 
-    // set script value;
-    std::string region = script[0].getRegion();
-    std::string text = script[0].getText();
-    std::vector<std::string> wordList = script[0].getWord(text);
 
-    // print region
-    Util::gotoxy(x - region.size() / 2 + 1, y + 3);
-    std::cout << region;
-
-    // print tex
-    x = 5, y += 6;
-    std::string textOutput = "";
-    int line = 0;
-    for (int i = 0; i < wordList.size(); i++) {
-        Util::gotoxy(x, y);
-        textOutput += wordList[i] + ' ';
-        std::cout << textOutput;
-
-        if (textOutput.size() / (DISPLAY_WIDTH / 2 + 5) > line) {
-            line += 1;   
-            textOutput += "\n\n    ";
-        }
-
-        Sleep(150);
-    }
-
-    delete[] script;
-
-    
+    int code = 0;
     while (true) {
-        auto input = Util::keyControl();
-        // if press space key
-        if (input == SPACE) {
-            return;
+        // set text pos
+        int x = DISPLAY_WIDTH / 4, y = DISPLAY_HEIGHT / 2;
+
+        // draw title
+        MainMenu::drawTitle();
+        // draw ui
+        Game::drawUI();
+
+        // set script value;
+        int scriptCode = script[code].getScriptCode();
+        int nextCode = script[code].getNextCode();
+        std::string region = script[code].getRegion();
+        std::string text = script[code].getText();
+        std::vector<std::string> selection = script[code].getSelection();
+
+        std::vector<std::string> wordList = script[code].getWord(text);
+
+        // print region
+        Util::gotoxy(x - region.size() / 2 + 1, y + 3);
+        std::cout << region;
+
+        // print tex
+        x = 5, y += 6;
+        std::string textOutput = "";
+        int line = 0;
+        for (int i = 0; i < wordList.size(); i++) {
+            Util::gotoxy(x, y);
+            textOutput += wordList[i] + ' ';
+            std::cout << textOutput;
+
+            if (textOutput.size() / ((DISPLAY_WIDTH - 5) / 2) > line) {
+                line += 1;
+                int alpha = textOutput.size();
+                textOutput += "\n\n    ";
+            }
+
+             Sleep(100);
+        }
+
+        while (true) {
+            auto input = Util::keyControl();
+            // if press space key
+            if (input == SPACE) {
+                code = nextCode;
+                if (code == -1) {
+                    delete[] script;
+                    return;
+                }
+                else {
+                    break;
+                }
+            }
         }
     }
+    
 }
 
 void Game::gameInfo() {

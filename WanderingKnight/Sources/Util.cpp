@@ -5,16 +5,17 @@
 GameScript::Script* Util::readJson(std::string fileName) {
 	std::string fullPath = Util::getResourcesPath();
 	using json = nlohmann::json;
-	std::ifstream stream(fullPath + fileName );
+	std::ifstream stream(fullPath + fileName);
 	json data;
 	data = json::parse(stream);
 	GameScript::Script* script = new GameScript::Script[data.size()];
 	int i = 0;
 	for (const auto& datum : data) {
 		script[i].setScriptCode(datum["scriptCode"].get<int>());
+		script[i].setNextCode(datum["nextCode"].get<int>());
 		script[i].setRegion(datum["region"].get<std::string>());
 		script[i].setText(datum["text"].get<std::string>());
-		++i;
+		script[i++].setSelection(datum["selection"].get<std::vector<std::string>>());
 	}
 	
 
@@ -65,7 +66,7 @@ std::string Util::getResourcesPath() {
 	USES_CONVERSION;
 	std::string str = W2A(path);
 	str = str.substr(0, str.find_last_of("\\/"));
-	str.replace(str.find("Debug"), 6, "");
+	str.replace(str.find("x64\\Debug"), 9, "");
 	str += "Resources/Adventure/";
 
 	return str;
