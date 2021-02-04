@@ -9,7 +9,9 @@ void Game::drawUI() {
 
     // print ui
     Util::gotoxy(x, y);
+    // horizontal
     std::cout << "######################################################################################";
+    //vertical
     x = DISPLAY_WIDTH / 2;
     for (int i = 0; y + i < DISPLAY_HEIGHT; i++) {
         Util::gotoxy(x, y + i);
@@ -26,12 +28,12 @@ void Game::gameStart() {
     // draw ui
     Game::drawUI();
 
-    GameScript::Script script = Util::readJson();
+    GameScript::Script* script = Util::readJson("GameScript.json");
 
     // set script value;
-    std::string region = script.getRegion();
-    std::string text = script.getText();
-    std::vector<std::string> wordList = script.getWord(text);
+    std::string region = script[0].getRegion();
+    std::string text = script[0].getText();
+    std::vector<std::string> wordList = script[0].getWord(text);
 
     // print region
     Util::gotoxy(x - region.size() / 2 + 1, y + 3);
@@ -47,12 +49,14 @@ void Game::gameStart() {
         std::cout << textOutput;
 
         if (textOutput.size() / (DISPLAY_WIDTH / 2 + 5) > line) {
-            line += 1;
+            line += 1;   
             textOutput += "\n\n    ";
         }
 
         Sleep(150);
     }
+
+    delete[] script;
 
     
     while (true) {

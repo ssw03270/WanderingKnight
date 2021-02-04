@@ -2,19 +2,23 @@
 
 #pragma execution_character_set( "utf-8" )
 
-GameScript::Script Util::readJson() {
+GameScript::Script* Util::readJson(std::string fileName) {
+	std::string fullPath = Util::getResourcesPath();
 	using json = nlohmann::json;
-	std::ifstream stream( "C:/Users/ttd85/Documents/GitHub/WanderingKnight/WanderingKnight/Resources/Adventure/GameScript.json" );
+	std::ifstream stream(fullPath + fileName );
 	json data;
 	data = json::parse(stream);
-
-	GameScript::Script script;
-	script.setScriptCode(data["scriptCode"].get<int>());
-	script.setRegion(data["region"].get<std::string>());
-	script.setText(data["text"].get<std::string>());
+	GameScript::Script* script = new GameScript::Script[data.size()];
+	int i = 0;
+	for (const auto& datum : data) {
+		script[i].setScriptCode(datum["scriptCode"].get<int>());
+		script[i].setRegion(datum["region"].get<std::string>());
+		script[i].setText(datum["text"].get<std::string>());
+		++i;
+	}
+	
 
 	return script;
-
 }
 
 void Util::init() {
@@ -51,4 +55,18 @@ int Util::keyControl() {
 		break;
 	}
 	return input;
+}
+
+// return resource path
+std::string Util::getResourcesPath() {
+	wchar_t path[MAX_PATH] = { 0 };
+	GetModuleFileName(NULL, path, MAX_PATH);
+
+	USES_CONVERSION;
+	std::string str = W2A(path);
+	str = str.substr(0, str.find_last_of("\\/"));
+	str.replace(str.find("Debug"), 6, "");
+	str += "Resources/Adventure/";
+
+	return str;
 }

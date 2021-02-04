@@ -8,6 +8,7 @@
 #include<cstring>
 #include <fstream>
 #include <iostream>
+#include <atlconv.h>
 #include <json/json.hpp>
 
 #include <GameScript.hpp>
@@ -23,7 +24,8 @@ namespace Util
 	void init();
 	void gotoxy(int, int);
 	int keyControl();
-	GameScript::Script readJson();
+	std::string getResourcesPath();
+	GameScript::Script* readJson(std::string);
 }
 
 #endif
