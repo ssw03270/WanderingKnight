@@ -15,7 +15,9 @@ GameScript::Script* Util::readJson(std::string fileName) {
 		script[i].setNextCode(datum["nextCode"].get<int>());
 		script[i].setRegion(datum["region"].get<std::string>());
 		script[i].setText(datum["text"].get<std::string>());
-		script[i++].setSelection(datum["selection"].get<std::vector<std::string>>());
+		script[i].setSelection(datum["selection"].get<std::vector<std::string>>());
+		script[i].setSelectionCode(datum["selectionCode"].get<std::vector<int>>());
+		++i;
 	}
 	
 

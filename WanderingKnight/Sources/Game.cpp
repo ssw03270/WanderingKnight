@@ -19,11 +19,13 @@ void Game::drawUI() {
     }
 }
 
+
+
 void Game::gameStart() {
     // get script
     GameScript::Script* script = Util::readJson("GameScript.json");
 
-
+    // playing game
     int code = 0;
     while (true) {
         // set text pos
@@ -40,6 +42,7 @@ void Game::gameStart() {
         std::string region = script[code].getRegion();
         std::string text = script[code].getText();
         std::vector<std::string> selection = script[code].getSelection();
+        std::vector<int> selectionCode = script[code].getSelectionCode();
 
         std::vector<std::string> wordList = script[code].getWord(text);
 
@@ -61,26 +64,58 @@ void Game::gameStart() {
                 int alpha = textOutput.size();
                 textOutput += "\n\n    ";
             }
-
-             Sleep(100);
+            // Sleep(100);
         }
 
-        while (true) {
-            auto input = Util::keyControl();
-            // if press space key
-            if (input == SPACE) {
-                code = nextCode;
-                if (code == -1) {
-                    delete[] script;
-                    return;
-                }
-                else {
-                    break;
+        // more than one selection
+        if (selection.size() > 0) {
+            int choice = Game::gameSelection(selection);
+            code = selectionCode[choice];
+        }
+        // there is no selection
+        else {
+            while (true) {
+                auto input = Util::keyControl();
+                // if press space key
+                if (input == SPACE) {
+                    code = nextCode;
+                    if (code == -1) {
+                        delete[] script;
+                        return;
+                    }
+                    else {
+                        break;
+                    }
                 }
             }
         }
+
+        
     }
     
+}
+
+int Game::gameSelection(std::vector<std::string> selection) {
+    int x = DISPLAY_WIDTH / 4, y = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 8 ;
+    int curPos = 0;
+
+    // print selection
+    for (int i = 0; i < selection.size(); i++) {
+        Util::gotoxy(x, y + i);
+        std::cout << selection[i];
+    }
+
+    while (true) {
+        for (int i = 0; i < selection.size(); i++) {
+            Util::gotoxy(x, y + i);
+            (i == curPos) ? std::cout << ">" : std::cout << " ";
+        }
+        auto input = Util::keyControl();
+        // If input SPACE key, curPos increase
+        input == SPACE ? (curPos = (curPos >= selection.size() - 1) ? 0 : curPos + 1) : false;
+        // If input ENTER key, something start
+        if (input == ENTER) return curPos;
+    }
 }
 
 void Game::gameInfo() {
