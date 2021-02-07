@@ -1,0 +1,13 @@
+{
+  "playerName": "ㅎㅇㅎㅇ",
+  "playerLevel": 1,
+  "playerExp": 0,
+  "playerMaxExp": 10,
+  "playerHP": 10,
+  "playerMaxHP": 10,
+  "playerSTR": 5,
+  "playerLUK": 5,
+  "playerINT": 5,
+  "playerFame": 5,
+  "maxExp": [ 10, 20, 25, 45, 60 ]
+}

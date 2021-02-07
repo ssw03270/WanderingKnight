@@ -12,6 +12,7 @@
 #include <json/json.hpp>
 
 #include <GameScript.hpp>
+#include <PlayerInfo.hpp>
 
 #define DISPLAY_WIDTH 86
 #define DISPLAY_HEIGHT 40
@@ -25,7 +26,8 @@ namespace Util
 	void gotoxy(int, int);
 	int keyControl();
 	std::string getResourcesPath();
-	GameScript::Script* readJson(std::string);
+	GameScript::Script* readScript(std::string);
+	PlayerInfo::Player readPlayer(std::string);
 }
 
 #endif

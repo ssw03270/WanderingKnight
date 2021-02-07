@@ -23,17 +23,20 @@
     <ClCompile Include="Sources\GameScript.cpp" />
     <ClCompile Include="Sources\MainMenu.cpp" />
     <ClCompile Include="Sources\main.cpp" />
+    <ClCompile Include="Sources\PlayerInfo.cpp" />
     <ClCompile Include="Sources\Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\Game.hpp" />
     <ClInclude Include="Includes\GameScript.hpp" />
     <ClInclude Include="Includes\MainMenu.hpp" />
+    <ClInclude Include="Includes\PlayerInfo.hpp" />
     <ClInclude Include="Includes\Util.hpp" />
     <ClInclude Include="Includes\WanderingKnight.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Adventure\GameScript.json" />
+    <None Include="Resources\Player\PlayerInfo.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

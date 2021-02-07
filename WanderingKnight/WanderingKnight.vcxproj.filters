@@ -30,6 +30,9 @@
     <ClCompile Include="Sources\GameScript.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\PlayerInfo.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\Util.hpp">
@@ -47,9 +50,15 @@
     <ClInclude Include="Includes\GameScript.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\PlayerInfo.hpp">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Adventure\GameScript.json">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="Resources\Player\PlayerInfo.json">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>

@@ -8,9 +8,11 @@
 
 namespace Game {
 	void gameStart();
+	void playerStat();
+	void drawPercentage(float, int);
 	int gameSelection(std::vector<std::string>);
 	void gameInfo();
-	void drawUI();
+	void drawLine();
 }
 
 #endif // !__GAME_H__
